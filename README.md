@@ -1,4 +1,4 @@
-![MasterHead](https://i.hizliresim.com/jrkfqye.jpg?_gl=1*1cgkm06*_ga*MTM5ODY0ODI1OS4xNzM0OTAxNzUw*_ga_M9ZRXYS2YN*MTczNDkwMTc0OS4xLjEuMTczNDkwMTkwMi40NS4wLjA.)
+![MasterHead](https://i.hizliresim.com/2bczykq.png?_gl=1*1yp1ulz*_ga*MTM5ODY0ODI1OS4xNzM0OTAxNzUw*_ga_M9ZRXYS2YN*MTczNDkwMTc0OS4xLjEuMTczNDkwMjY5My4zNi4wLjA.)
 <h1 align="center">Hi 👋, I'm Orhan Uzel</h1>
 <h3 align="center">I am always open to learning and embracing innovations. I'm so excited to learn new skills and experience new things every day! It's one of my life goals!</h3>
 
