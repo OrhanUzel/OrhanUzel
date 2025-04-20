@@ -2,7 +2,7 @@
 <p align="center">I am always open to learning and embracing innovations. I'm so excited to learn new skills and experience new things every day! It's one of my life goals!</p>
 
 
-<p align="center"> - 🌱 I’m currently learning <b>Cyber Security, Java, ASP.NET Core, Mobile Programming</b> <br> </p>
+<p align="center"> - 🌱 I’m currently learning <b>ASP.NET Core, Mobile Programming, Artificial Intellegence and Cyber Security</b> <br> </p>
 
 <p align="center">- 📫 How to reach me <a href="mailto:orhanuzel@yahoo.com">orhanuzel@yahoo.com</a>
 </p>
