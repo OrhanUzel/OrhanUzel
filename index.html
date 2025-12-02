@@ -1,78 +1,169 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UzelLabs | Mobil Uygulama Portfolyosu</title>
-    <meta name="description" content="UzelLabs tarafından geliştirilen güvenli ve verimli mobil uygulamalar. Study Journal Pro ve Secure QR Scanner.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+import React from "react";
 
-    <header class="hero">
-        <div class="container">
-            <h1>UzelLabs</h1>
-            <p>Hayatı kolaylaştıran, güvenli ve modern mobil deneyimler.</p>
-            <div class="social-links">
-                <a href="mailto:orhanuzel@yahoo.com" class="btn-contact"><i class="fas fa-envelope"></i> İletişime Geç</a>
-                <a href="https://github.com/OrhanUzel" target="_blank" class="btn-social"><i class="fab fa-github"></i></a>
+// App Showcase - Tek dosyalık React bileşeni
+// Tailwind ile hızlı, modern ve responsive bir statik sayfa.
+// Kullanım: Bu bileşeni bir Vite/CRA projesinin `src/App.jsx` dosyasına yapıştırın.
+// Not: Tailwind ayarlarını (postcss/tailwind.config.js) projeye eklemeyi unutmayın.
+
+const APPS = [
+  {
+    id: 1,
+    title: "Study Journal Pro",
+    subtitle: "Mobil çalışma günlüğü ve takip uygulaması",
+    description:
+      "Hızlı not alma, çalışma süreleri takibi ve istatistiklerle verimli çalışma için tasarlandı.",
+    playStore: "https://play.google.com/store/apps/details?id=com.studyjournalpromobile",
+    image:
+      "https://play-lh.googleusercontent.com/IV_SAMPLE_IMG=s180-rw", // place-holder; replace with gerçek ekran görüntüsü URL'si
+    tags: ["Verimlilik", "Not", "Takip"]
+  },
+  // Yeni uygulamalar eklemek için buraya nesneler ekleyin.
+];
+
+export default function AppShowcase() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <header className="bg-white shadow">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-lg bg-gradient-to-r from-indigo-500 to-pink-500 flex items-center justify-center text-white font-bold">OU</div>
+            <div>
+              <h1 className="text-xl font-semibold">Orhan Uzel — Uygulama Sergisi</h1>
+              <p className="text-sm text-slate-500">Mobil uygulamalarınızı hızlıca sergilemek için statik bir sayfa</p>
             </div>
-        </div>
-    </header>
+          </div>
 
-    <section id="apps" class="apps-section">
-        <div class="container">
-            <h2 class="section-title">Uygulamalarımız</h2>
-            
-            <div class="apps-grid">
-                
-                <div class="app-card">
-                    <div class="app-icon">
-                        <i class="fas fa-clock fa-3x" style="color: #4A90E2;"></i> 
-                    </div>
-                    <h3>Study Journal Pro</h3>
-                    <p class="app-desc">Zamanı yönetmek hiç bu kadar şık olmamıştı. Odaklanın, notlar alın ve verimliliğinizi artırın. Tamamen reklamsız ve güvenli.</p>
-                    <div class="store-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.studyjournalpromobile" target="_blank" class="btn-store google">
-                            <i class="fab fa-google-play"></i> Google Play
-                        </a>
-                        </div>
-                    <div class="app-links">
-                        <a href="https://orhanuzel.github.io/Study-Journal-Pro-Privacy-Policy/" target="_blank">Gizlilik Politikası</a>
-                    </div>
+          <nav className="hidden md:flex gap-6 text-sm text-slate-600">
+            <a href="#apps" className="hover:text-slate-900">Uygulamalar</a>
+            <a href="#about" className="hover:text-slate-900">Hakkında</a>
+            <a href="#contact" className="hover:text-slate-900">İletişim</a>
+          </nav>
+
+          <div className="md:hidden">{/* mobil için hamburger eklenebilir */}</div>
+        </div>
+      </header>
+
+      <main className="max-w-6xl mx-auto px-6 py-16">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div>
+            <h2 className="text-4xl font-extrabold leading-tight">Uygulamalarınızı güzel bir şekilde sergileyin</h2>
+            <p className="mt-4 text-slate-600">Bu sayfa, Play Store veya App Store linkleri ile uygulama kartlarınızı gösterir. Hızlı, erişilebilir ve responsive.</p>
+
+            <div className="mt-6 flex gap-3">
+              <a href="#apps" className="inline-block px-5 py-3 rounded-md bg-indigo-600 text-white font-medium">Uygulamaları Gör</a>
+              <a href="#contact" className="inline-block px-5 py-3 rounded-md border border-slate-200 text-slate-700">İletişime Geç</a>
+            </div>
+
+            <div className="mt-6 text-sm text-slate-500">
+              <strong>Not:</strong> Karttaki resimleri ve açıklamaları istediğiniz gibi düzenleyebilirsiniz. Yeni uygulama eklemek için kaynak kodundaki <code>APPS</code> dizisini güncelleyin.
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <div className="w-full max-w-md p-6 bg-white rounded-2xl shadow-lg">
+              <img
+                src={APPS[0].image}
+                alt={APPS[0].title}
+                className="w-full h-64 object-cover rounded-lg mb-4 bg-slate-100"
+                onError={(e) => {
+                  e.currentTarget.src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239ca3af' font-family='Arial' font-size='24'%3EEkran Görüntüsü Ekleyin%3C/text%3E%3C/svg%3E";
+                }}
+              />
+
+              <h3 className="text-lg font-semibold">{APPS[0].title}</h3>
+              <p className="text-sm text-slate-500 mt-2">{APPS[0].description}</p>
+
+              <div className="mt-4 flex items-center justify-between">
+                <a
+                  href={APPS[0].playStore}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-block px-4 py-2 rounded-md border border-slate-200 text-sm font-medium"
+                >
+                  Play Store'da Aç
+                </a>
+
+                <div className="flex gap-2 text-xs">
+                  {APPS[0].tags.map((t) => (
+                    <span key={t} className="px-2 py-1 bg-slate-100 rounded-full">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Uygulama ızgarası */}
+        <section id="apps" className="mt-16">
+          <h3 className="text-2xl font-semibold">Uygulamalar</h3>
+          <p className="text-slate-600 mt-2">Aşağıda uygulamalarınızın kartları yer alır. Daha fazla uygulama eklemek için kodu düzenleyin.</p>
+
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {APPS.map((app) => (
+              <article key={app.id} className="bg-white p-4 rounded-2xl shadow-sm">
+                <div className="h-40 rounded-lg overflow-hidden bg-slate-100">
+                  <img
+                    src={app.image}
+                    alt={app.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.currentTarget.src = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600' viewBox='0 0 800 600'%3E%3Crect width='100%25' height='100%25' fill='%23f1f5f9'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%239ca3af' font-family='Arial' font-size='20'%3EEkran Görüntüsü Yok%3C/text%3E%3C/svg%3E";
+                    }}
+                  />
                 </div>
 
-                <div class="app-card">
-                    <div class="app-icon">
-                        <i class="fas fa-qrcode fa-3x" style="color: #27ae60;"></i>
-                    </div>
-                    <h3>Secure QR & Link Scanner</h3>
-                    <p class="app-desc">Bağlantıları açmadan önce güvenliğini kontrol edin. Hızlı tarama, güvenli analiz ve QR oluşturma hepsi bir arada.</p>
-                    <div class="store-buttons">
-                        <a href="https://play.google.com/store/apps/details?id=com.orhanuzel.secureqrlinkscanner" target="_blank" class="btn-store google">
-                            <i class="fab fa-google-play"></i> Google Play
-                        </a>
-                    </div>
-                    <div class="app-links">
-                        <a href="https://orhanuzel.github.io/Secure-QR-Link-Scanner-Privacy-Policy/" target="_blank">Gizlilik Politikası</a>
-                    </div>
+                <h4 className="mt-4 font-semibold">{app.title}</h4>
+                <p className="mt-2 text-sm text-slate-500">{app.subtitle}</p>
+
+                <div className="mt-4 flex items-center justify-between">
+                  <a
+                    href={app.playStore}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm inline-block px-3 py-2 rounded-md bg-indigo-50 border border-indigo-100"
+                  >
+                    Play Store
+                  </a>
+
+                  <div className="text-xs text-slate-500">ID: {app.id}</div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-            </div>
+        <section id="about" className="mt-16 bg-white p-6 rounded-2xl shadow-sm">
+          <h3 className="text-2xl font-semibold">Hakkında</h3>
+          <p className="mt-3 text-slate-600">Bu sayfa statik bir React uygulaması olarak hazırlandı. Tasarım Tailwind CSS ile yapılmıştır — hızlıca özelleştirilebilir ve ölçeklenebilir.</p>
+
+          <ul className="mt-4 list-disc ml-5 text-slate-600">
+            <li>Kolayca yeni uygulama kartları ekleyin.</li>
+            <li>Play Store / App Store linklerini doğrudan kullanın.</li>
+            <li>Görsellerinizi `public` klasörüne atıp `image` alanına path verin.</li>
+          </ul>
+        </section>
+
+        <section id="contact" className="mt-12 p-6 rounded-2xl text-slate-700">
+          <h3 className="text-2xl font-semibold">İletişim</h3>
+          <p className="mt-3">E-posta: <a href="mailto:orhanuzel@yahoo.com" className="text-indigo-600">orhanuzel@yahoo.com</a></p>
+
+          <form className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4" onSubmit={(e) => e.preventDefault()}>
+            <input className="col-span-2 p-3 rounded-md border" placeholder="İsim" />
+            <input className="p-3 rounded-md border" placeholder="E-posta" defaultValue="orhanuzel@yahoo.com" />
+            <textarea className="col-span-2 p-3 rounded-md border" rows={4} placeholder="Mesajınız..."></textarea>
+            <button className="col-span-2 px-4 py-3 rounded-md bg-indigo-600 text-white">Gönder (demo)</button>
+          </form>
+
+          <p className="mt-4 text-sm text-slate-500">Not: Bu form örnektir. Gerçek bir form isterseniz Netlify Forms, Formspree veya kendi backend API'niz ile bağlayabiliriz.</p>
+        </section>
+      </main>
+
+      <footer className="bg-white mt-16 py-6">
+        <div className="max-w-6xl mx-auto px-6 text-sm text-slate-500 flex items-center justify-between">
+          <div>© {new Date().getFullYear()} Orhan Uzel</div>
+          <div>Hazır: Statik React + Tailwind template</div>
         </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <h3>UzelLabs</h3>
-            <p>Yazılım geliştirmede güvenlik ve sadelik önceliğimizdir.</p>
-            <p class="email-text">E-posta: <a href="mailto:orhanuzel@yahoo.com">orhanuzel@yahoo.com</a></p>
-            <div class="copyright">
-                &copy; 2025 UzelLabs. Tüm hakları saklıdır.
-            </div>
-        </div>
-    </footer>
-
-</body>
-</html>
+      </footer>
+    </div>
+  );
+}
